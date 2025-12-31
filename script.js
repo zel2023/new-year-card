@@ -266,8 +266,8 @@ function initEventListeners() {
 
 // ========== 倒计时功能 ==========
 function updateCountdown() {
-    // 2026年春节日期：2026年1月29日
-    const newYear = new Date('2026-01-29T00:00:00').getTime();
+    // 2026年春节日期：2026年2月17日
+    const newYear = new Date('2026-02-17T00:00:00').getTime();
     const now = new Date().getTime();
     const distance = newYear - now;
 
