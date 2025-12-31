@@ -1,7 +1,3 @@
-# 音乐文件（体积较大）
-assets/*.mp3
-assets/*.wav
-
 # 日志文件
 log/*.log
 
