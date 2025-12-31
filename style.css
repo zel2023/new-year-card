@@ -43,9 +43,8 @@ body {
 }
 
 #fireworksCanvas {
-    z-index: 999;
-    pointer-events: auto;
-    cursor: crosshair;
+    z-index: 2;
+    pointer-events: none;
 }
 
 /* ========== 主容器 ========== */

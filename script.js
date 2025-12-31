@@ -236,9 +236,12 @@ function initEventListeners() {
         }
     });
 
-    // 点击屏幕放烟花
-    fireworksCanvas.addEventListener('click', (e) => {
-        launchFirework(e.clientX, e.clientY);
+    // 点击屏幕放烟花（监听整个文档，避免被其他元素遮挡）
+    document.addEventListener('click', (e) => {
+        // 排除按钮点击
+        if (e.target.tagName !== 'BUTTON') {
+            launchFirework(e.clientX, e.clientY);
+        }
     });
 
     // 音乐控制
