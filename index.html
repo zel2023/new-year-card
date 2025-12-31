@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026马年新年贺卡 - 马到成功</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 背景粒子画布 -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <!-- 烟花画布 -->
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 开场封面 -->
+        <div id="coverPage" class="cover-page">
+            <div class="cover-content">
+                <h1 class="cover-title">🐴</h1>
+                <h2 class="cover-subtitle">2026马年新春贺卡</h2>
+                <button id="openCard" class="open-btn">打开贺卡</button>
+            </div>
+        </div>
+
+        <!-- 主贺卡内容 -->
+        <div id="cardContent" class="card-content hidden">
+            <!-- 顶部标题 -->
+            <header class="header">
+                <h1 class="main-title">
+                    <span class="title-icon">🐴</span>
+                    2026 马年大吉
+                    <span class="title-icon">🐴</span>
+                </h1>
+                <p class="subtitle">马到成功 · 龙马精神 · 一马当先</p>
+            </header>
+
+            <!-- 祝福语轮播区 -->
+            <section class="blessing-section">
+                <div class="blessing-card">
+                    <p id="blessingText" class="blessing-text">新的一年，祝你马到成功，心想事成！</p>
+                    <button id="nextBlessing" class="blessing-btn">换一句祝福</button>
+                </div>
+            </section>
+
+            <!-- 互动功能区 -->
+            <section class="interactive-section">
+                <div class="interactive-grid">
+                    <!-- 新年抽签 -->
+                    <div class="interactive-card">
+                        <div class="card-icon">🎴</div>
+                        <h3>新年抽签</h3>
+                        <button id="drawLucky" class="action-btn">点击抽签</button>
+                        <p id="luckyResult" class="result-text"></p>
+                    </div>
+
+                    <!-- 烟花秀 -->
+                    <div class="interactive-card">
+                        <div class="card-icon">🎆</div>
+                        <h3>烟花秀</h3>
+                        <button id="launchFireworks" class="action-btn">放烟花</button>
+                        <p class="hint-text">点击屏幕任意位置</p>
+                    </div>
+
+                    <!-- 音乐控制 -->
+                    <div class="interactive-card">
+                        <div class="card-icon">🎵</div>
+                        <h3>背景音乐</h3>
+                        <button id="toggleMusic" class="action-btn">播放音乐</button>
+                        <p class="hint-text">营造节日氛围</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 新年倒计时 -->
+            <section class="countdown-section">
+                <h3 class="countdown-title">距离2026春节还有</h3>
+                <div id="countdown" class="countdown-display">
+                    <div class="countdown-item">
+                        <span id="days" class="countdown-number">00</span>
+                        <span class="countdown-label">天</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours" class="countdown-number">00</span>
+                        <span class="countdown-label">时</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes" class="countdown-number">00</span>
+                        <span class="countdown-label">分</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds" class="countdown-number">00</span>
+                        <span class="countdown-label">秒</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 底部装饰 -->
+            <footer class="footer">
+                <div class="horse-decoration">
+                    <span class="horse-emoji">🐎🐎🐎</span>
+                </div>
+                <p class="footer-text">愿你在新的一年里一马平川，前程似锦！</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- 隐藏的音频元素 -->
+    <audio id="bgMusic" loop>
+        <source src="assets/new-year-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

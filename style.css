@@ -1,0 +1,396 @@
+/* 2026马年新年贺卡样式 */
+
+/* ========== 基础样式 ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* 马年主题配色 */
+    --primary-red: #D32F2F;
+    --primary-orange: #FF6F00;
+    --primary-gold: #FFB300;
+    --accent-red: #C62828;
+    --bg-dark: #1a0000;
+    --bg-gradient-start: #2C0000;
+    --bg-gradient-end: #0D0D0D;
+    --text-light: #FFFFFF;
+    --text-gold: #FFD54F;
+    --shadow-glow: rgba(255, 111, 0, 0.5);
+}
+
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    color: var(--text-light);
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ========== Canvas 画布 ========== */
+#particlesCanvas,
+#fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#fireworksCanvas {
+    z-index: 999;
+    pointer-events: auto;
+    cursor: crosshair;
+}
+
+/* ========== 主容器 ========== */
+.container {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+}
+
+/* ========== 封面页 ========== */
+.cover-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    animation: fadeIn 1s ease-in;
+}
+
+.cover-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.cover-title {
+    font-size: 8rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.cover-subtitle {
+    font-size: 2.5rem;
+    color: var(--text-gold);
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px var(--shadow-glow);
+}
+
+.open-btn {
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+    color: var(--text-light);
+    border: 3px solid var(--primary-gold);
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px var(--shadow-glow);
+}
+
+.open-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px var(--shadow-glow);
+}
+
+/* ========== 主贺卡内容 ========== */
+.card-content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: slideUp 1s ease-out;
+}
+
+.card-content.hidden {
+    display: none;
+}
+
+/* ========== 头部 ========== */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--primary-gold), var(--primary-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 30px var(--shadow-glow);
+}
+
+.title-icon {
+    display: inline-block;
+    animation: swing 2s infinite;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--text-gold);
+    letter-spacing: 0.3rem;
+}
+
+/* ========== 祝福语区域 ========== */
+.blessing-section {
+    margin-bottom: 3rem;
+}
+
+.blessing-card {
+    background: rgba(211, 47, 47, 0.2);
+    border: 2px solid var(--primary-gold);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(255, 111, 0, 0.3);
+}
+
+.blessing-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-gold);
+    min-height: 3.6rem;
+}
+
+.blessing-btn {
+    padding: 0.8rem 2rem;
+    background: var(--primary-orange);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.blessing-btn:hover {
+    background: var(--primary-red);
+    transform: scale(1.05);
+}
+
+/* ========== 互动功能区 ========== */
+.interactive-section {
+    margin-bottom: 3rem;
+}
+
+.interactive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.interactive-card {
+    background: rgba(255, 111, 0, 0.15);
+    border: 2px solid var(--primary-orange);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.interactive-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px var(--shadow-glow);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.interactive-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-gold);
+}
+
+.action-btn {
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+    color: white;
+    border: 2px solid var(--primary-gold);
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px var(--shadow-glow);
+}
+
+.result-text {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: var(--text-gold);
+    min-height: 1.5rem;
+    font-weight: bold;
+}
+
+.hint-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5rem;
+}
+
+/* ========== 倒计时区域 ========== */
+.countdown-section {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.countdown-title {
+    font-size: 1.8rem;
+    color: var(--text-gold);
+    margin-bottom: 1.5rem;
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown-number {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary-gold), var(--primary-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px var(--shadow-glow);
+}
+
+.countdown-label {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+/* ========== 底部 ========== */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.horse-decoration {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: gallop 3s infinite;
+}
+
+.footer-text {
+    font-size: 1.3rem;
+    color: var(--text-gold);
+    line-height: 1.6;
+}
+
+/* ========== 动画效果 ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+@keyframes gallop {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 768px) {
+    .cover-title {
+        font-size: 5rem;
+    }
+
+    .cover-subtitle {
+        font-size: 1.8rem;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .blessing-text {
+        font-size: 1.3rem;
+    }
+
+    .countdown-number {
+        font-size: 2.5rem;
+    }
+
+    .countdown-label {
+        font-size: 1rem;
+    }
+
+    .interactive-grid {
+        grid-template-columns: 1fr;
+    }
+}

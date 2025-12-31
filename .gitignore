@@ -1,0 +1,19 @@
+# 音乐文件（体积较大）
+assets/*.mp3
+assets/*.wav
+
+# 日志文件
+log/*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 临时文件
+*.tmp
